@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf7f2">
+  <title>So Coco – La Mie en Rose | Pâtisserie & Boulangerie artisanale à Nantes</title>
+  <meta name="description" content="Pâtisserie Boulangerie So Coco – La Mie en Rose, 2 rue Lamoricière à Nantes : pains, viennoiseries, pâtisseries artisanales et bonne humeur du lundi au vendredi.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="assets/images/logo-sococo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+:root {
+  --rose-blush: #e7d1c5;
+  --rose-soft: #f4ebe5;
+  --cream: #fbf7f2;
+  --paper: #fffdf9;
+  --cocoa: #6c5448;
+  --cocoa-deep: #49372f;
+  --taupe: #b99684;
+  --sand: #d9c0b2;
+  --line: rgba(73, 55, 47, 0.14);
+  --shadow: 0 22px 60px rgba(73, 55, 47, 0.08);
+  --radius-lg: 34px;
+  --radius-md: 24px;
+  --shell: min(1180px, calc(100% - 48px));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--cocoa-deep);
+  background:
+    radial-gradient(circle at top left, rgba(231,209,197,.55), transparent 28%),
+    linear-gradient(180deg, #fffdfb 0%, var(--cream) 100%);
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+figure { margin: 0; }
+button, input { font: inherit; }
+.skip-link {
+  position: fixed;
+  left: 14px;
+  top: 14px;
+  z-index: 999;
+  padding: 11px 15px;
+  border-radius: 999px;
+  background: var(--cocoa-deep);
+  color: white;
+  transform: translateY(-150%);
+  transition: transform .2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+.shell { width: var(--shell); margin-inline: auto; }
+.section { padding: 112px 0; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(73,55,47,.06);
+  background: rgba(255,252,247,.86);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--rose-blush);
+  padding: 8px;
+  flex: 0 0 auto;
+}
+.brand-copy { display: grid; gap: 2px; }
+.brand-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.7rem;
+  line-height: .9;
+  letter-spacing: -.04em;
+}
+.brand-sub {
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(73,55,47,.7);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: .9rem;
+  font-weight: 700;
+}
+.nav > a:not(.nav-cta) { position: relative; }
+.nav > a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%; bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transition: right .2s ease;
+}
+.nav > a:not(.nav-cta):hover::after { right: 0; }
+.nav-cta, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: .88rem;
+  font-weight: 800;
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.nav-cta:hover, .button:hover { transform: translateY(-2px); }
+.nav-cta { background: var(--cocoa-deep); color: white; }
+.button-dark { background: var(--cocoa-deep); color: white; }
+.button-dark:hover, .nav-cta:hover { background: #5b463c; }
+.button-soft {
+  border-color: var(--line);
+  background: rgba(255,255,255,.72);
+}
+.button-soft:hover { border-color: var(--cocoa-deep); }
+.button-rose {
+  background: var(--rose-blush);
+  color: var(--cocoa-deep);
+}
+.button-rose:hover { background: #e3c8bb; }
+.menu-toggle, .menu-button { display: none; }
+.hero { padding: 42px 0 90px; }
+.hero-layout {
+  display: grid;
+  grid-template-columns: .84fr 1.16fr;
+  gap: clamp(30px, 5vw, 76px);
+  align-items: center;
+}
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: .73rem;
+  line-height: 1.2;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgba(73,55,47,.68);
+}
+.hero h1, .section h2, .story-card h3, .review-number {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(4.2rem, 7vw, 7.4rem);
+  line-height: .84;
+}
+.hero h1 em { font-style: italic; color: var(--taupe); }
+.hero-lead {
+  max-width: 550px;
+  margin: 26px 0 0;
+  font-size: 1.03rem;
+  color: rgba(73,55,47,.82);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+.meta-card {
+  padding: 18px 18px 17px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line);
+}
+.meta-card span {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(73,55,47,.58);
+}
+.meta-card strong { display: block; margin-top: 6px; font-size: .96rem; }
+.hero-visual {
+  position: relative;
+  min-height: 760px;
+}
+.hero-main {
+  position: absolute;
+  inset: 0 0 56px 68px;
+  overflow: hidden;
+  border-radius: 38px;
+  box-shadow: var(--shadow);
+  background: #e7d9d0;
+}
+.hero-main img { height: 100%; object-fit: cover; object-position: center; }
+.hero-side {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  overflow: hidden;
+  border-radius: 26px;
+  background: var(--paper);
+  border: 10px solid var(--paper);
+  box-shadow: var(--shadow);
+}
+.hero-side img { aspect-ratio: 4 / 5; object-fit: cover; height: 100%; }
+.hero-badge {
+  position: absolute;
+  right: 22px;
+  top: 26px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255,248,241,.92);
+  border: 1px solid rgba(73,55,47,.12);
+  box-shadow: 0 12px 30px rgba(73,55,47,.10);
+}
+.hero-badge img { width: 56px; height: 56px; }
+.hero-note {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  max-width: 260px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(73,55,47,.88);
+  color: rgba(255,255,255,.9);
+  font-size: .84rem;
+  backdrop-filter: blur(12px);
+}
+.logo-strip {
+  padding: 26px 0;
+  border-top: 1px solid rgba(73,55,47,.08);
+  border-bottom: 1px solid rgba(73,55,47,.08);
+  background: linear-gradient(90deg, rgba(231,209,197,.35), rgba(255,255,255,.7));
+}
+.logo-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+}
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.85);
+  border: 1px solid var(--line);
+}
+.logo-chip img { width: 28px; height: 28px; }
+.logo-copy { color: rgba(73,55,47,.66); }
+.logo-copy strong { color: var(--cocoa-deep); }
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 54px;
+}
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(3.1rem, 5.3vw, 5.7rem);
+  line-height: .88;
+}
+.section-heading p:last-child {
+  margin: 22px 0 0;
+  max-width: 620px;
+  color: rgba(73,55,47,.74);
+}
+.selection-grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.selection-main {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.selection-main .image-wrap img { height: 560px; object-fit: cover; }
+.image-wrap { overflow: hidden; }
+.selection-main .copy-wrap { padding: 34px; }
+.copy-wrap h3 {
+  margin: 0 0 12px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.3rem, 3.5vw, 3.6rem);
+  line-height: .92;
+}
+.copy-wrap p { margin: 0; color: rgba(73,55,47,.78); }
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.tag-list span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--rose-soft);
+  border: 1px solid rgba(73,55,47,.08);
+  font-size: .8rem;
+  font-weight: 800;
+}
+.selection-side {
+  display: grid;
+  gap: 24px;
+}
+.story-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 250px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: white;
+}
+.story-card img { height: 100%; object-fit: cover; }
+.story-card .story-copy { padding: 26px; }
+.story-card h3 { margin: 0 0 10px; font-size: 2.4rem; line-height: .92; }
+.story-card p { margin: 0; color: rgba(73,55,47,.76); }
+.highlight-section {
+  background: linear-gradient(180deg, rgba(231,209,197,.42), rgba(255,255,255,.0));
+}
+.highlight-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+.highlight-copy {
+  padding: 46px;
+  border-radius: var(--radius-lg);
+  background: var(--cocoa-deep);
+  color: rgba(255,255,255,.92);
+}
+.highlight-copy .eyebrow { color: rgba(255,255,255,.66); }
+.highlight-copy h2 { margin: 0; font-size: clamp(3rem, 5vw, 5.6rem); line-height: .88; }
+.highlight-copy p { max-width: 520px; color: rgba(255,255,255,.74); }
+.highlight-copy ul { margin: 24px 0 0; padding: 0 0 0 18px; color: rgba(255,255,255,.82); }
+.highlight-copy li + li { margin-top: 10px; }
+.highlight-visual {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: white;
+  box-shadow: var(--shadow);
+}
+.highlight-visual img { height: 100%; min-height: 540px; object-fit: cover; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 24px;
+}
+.gallery-main {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.gallery-main img { height: 720px; object-fit: cover; }
+.gallery-aside {
+  display: grid;
+  gap: 24px;
+}
+.gallery-quote, .gallery-card {
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: white;
+}
+.gallery-quote {
+  min-height: 270px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(231,209,197,.9), rgba(244,235,229,.75));
+}
+.gallery-quote p:last-child {
+  margin: 20px 0 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 3vw, 3.3rem);
+  line-height: .95;
+}
+.gallery-card img { height: 300px; object-fit: cover; }
+.reviews-layout {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 36px;
+  align-items: start;
+}
+.review-panel {
+  position: sticky;
+  top: 120px;
+  padding: 34px;
+  border-radius: 28px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.review-number {
+  font-size: clamp(5.8rem, 10vw, 9rem);
+  line-height: .78;
+}
+.stars { letter-spacing: .16em; color: var(--taupe); }
+.review-panel p { color: rgba(73,55,47,.74); }
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.fact-card {
+  min-height: 180px;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.84);
+}
+.fact-card span {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(73,55,47,.58);
+}
+.fact-card strong {
+  display: block;
+  margin-top: 14px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.2rem;
+  line-height: .94;
+}
+.fact-card p { margin: 14px 0 0; color: rgba(73,55,47,.74); font-size: .95rem; }
+.visit {
+  background: var(--paper);
+}
+.visit-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 34px;
+}
+.visit-card, .map-panel {
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: white;
+  box-shadow: var(--shadow);
+}
+.visit-card { padding: 36px; }
+.visit-card h2 { margin: 0; font-size: clamp(3rem, 5vw, 5rem); line-height: .9; }
+.visit-card > p:last-of-type { color: rgba(73,55,47,.74); }
+.info-list { display: grid; gap: 18px; margin-top: 28px; }
+.info-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(73,55,47,.08);
+}
+.info-row span {
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(73,55,47,.58);
+}
+.info-row strong, .info-row a { font-size: 1rem; font-weight: 800; }
+.info-row a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.map-panel iframe { display: block; width: 100%; height: 100%; min-height: 590px; border: 0; filter: saturate(.85) contrast(.95); }
+.site-footer {
+  padding: 54px 0 62px;
+  background: var(--cocoa-deep);
+  color: rgba(255,255,255,.9);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 36px;
+  align-items: end;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.1);
+  padding: 8px;
+}
+.footer-brand strong {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  line-height: .9;
+}
+.footer-brand span { color: rgba(255,255,255,.58); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
+.footer-meta, .footer-legal { font-size: .76rem; color: rgba(255,255,255,.68); }
+.footer-meta p, .footer-legal p { margin: 0; }
+.footer-meta { display: grid; gap: 6px; }
+.footer-legal { text-align: right; }
+.reveal { animation: rise .72s both cubic-bezier(.22,.74,.24,1); }
+.delay-1 { animation-delay: .08s; }
+.delay-2 { animation-delay: .16s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+@media (max-width: 1020px) {
+  :root { --shell: min(100% - 36px, 820px); }
+  .section { padding: 88px 0; }
+  .hero-layout, .selection-grid, .highlight-layout, .gallery-grid, .reviews-layout, .visit-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 660px; }
+  .hero-main { inset: 0 0 44px 44px; }
+  .hero-side { width: 220px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; }
+  .story-card { grid-template-columns: 180px 1fr; }
+  .review-panel { position: static; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-legal { grid-column: 1 / -1; text-align: left; }
+}
+@media (max-width: 760px) {
+  :root { --shell: calc(100% - 28px); --radius-lg: 26px; --radius-md: 20px; }
+  body { font-size: 15px; }
+  .section { padding: 72px 0; }
+  .header-inner { min-height: 74px; }
+  .menu-button {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .menu-button span { width: 17px; height: 1.5px; background: var(--cocoa-deep); transition: .2s ease; }
+  .nav {
+    position: absolute;
+    top: 74px;
+    left: 14px;
+    right: 14px;
+    display: grid;
+    gap: 0;
+    padding: 10px;
+    background: rgba(255,252,247,.98);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 18px 50px rgba(73,55,47,.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: .2s ease;
+  }
+  .nav a { padding: 13px 12px; }
+  .nav-cta { text-align: center; margin-top: 5px; }
+  .menu-toggle:checked ~ .nav { opacity: 1; visibility: visible; transform: translateY(0); }
+  .menu-toggle:checked + .menu-button span:first-child { transform: translateY(3px) rotate(45deg); }
+  .menu-toggle:checked + .menu-button span:last-child { transform: translateY(-3px) rotate(-45deg); }
+  .hero { padding-top: 18px; padding-bottom: 68px; }
+  .hero h1 { font-size: clamp(3.6rem, 15vw, 5.6rem); }
+  .hero-meta { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 520px; }
+  .hero-main { inset: 0 0 38px 26px; }
+  .hero-side { width: 160px; border-width: 7px; }
+  .hero-badge { width: 88px; height: 88px; top: 16px; right: 16px; }
+  .hero-badge img { width: 42px; height: 42px; }
+  .hero-note { position: static; margin-top: 14px; max-width: none; }
+  .logo-strip-inner { flex-direction: column; align-items: flex-start; }
+  .selection-main .image-wrap img { height: 400px; }
+  .story-card { grid-template-columns: 1fr; }
+  .story-card img { height: 240px; }
+  .highlight-copy { padding: 30px 24px; }
+  .highlight-visual img { min-height: 420px; }
+  .gallery-main img { height: 420px; }
+  .gallery-card img { height: 260px; }
+  .facts-grid { grid-template-columns: 1fr; }
+  .visit-card { padding: 28px 22px; }
+  .info-row { grid-template-columns: 1fr; gap: 6px; }
+  .map-panel iframe { min-height: 420px; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .hero-visual { min-height: 450px; }
+  .hero-main { inset: 0 0 24px 18px; }
+  .hero-side { width: 138px; }
+  .selection-main .image-wrap img { height: 330px; }
+  .highlight-visual img { min-height: 340px; }
+  .gallery-main img { height: 340px; }
+}
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "So Coco - La Mie en Rose",
+    "image": "assets/images/facade-boutique.png",
+    "telephone": "+33 2 40 20 47 96",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2 Rue Lamoricière",
+      "postalCode": "44100",
+      "addressLocality": "Nantes",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "07:00",
+        "closes": "19:30"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/sococo.nantes/"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "122"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#accueil" aria-label="So Coco — accueil">
+        <img class="brand-mark" src="assets/images/logo-sococo.png" alt="Logo So Coco">
+        <span class="brand-copy">
+          <span class="brand-name">So Coco</span>
+          <span class="brand-sub">La Mie en Rose · Nantes</span>
+        </span>
+      </a>
+
+      <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-hidden="true">
+      <label class="menu-button" for="menu-toggle" aria-label="Ouvrir le menu"><span></span><span></span></label>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#selection">La sélection</a>
+        <a href="#maison">La maison</a>
+        <a href="#avis">Avis</a>
+        <a href="#infos">Infos</a>
+        <a class="nav-cta" href="https://www.google.com/maps/search/?api=1&query=2%20Rue%20Lamorici%C3%A8re%2044100%20Nantes" target="_blank" rel="noopener">Itinéraire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil">
+      <div class="shell hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Pâtisserie & boulangerie artisanale · Nantes</p>
+          <h1>La mie en rose,<br><em>version</em><br>So Coco.</h1>
+          <p class="hero-lead">Au 2 rue Lamoricière, So Coco réunit pains, viennoiseries, pâtisseries artisanales, snacking et une identité douce, joyeuse et très nantaise.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#selection">Découvrir la maison</a>
+            <a class="button button-soft" href="https://www.instagram.com/sococo.nantes/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card"><span>Adresse</span><strong>2 rue Lamoricière</strong></div>
+            <div class="meta-card"><span>Horaires</span><strong>Lun · Ven · 7h–19h30</strong></div>
+            <div class="meta-card"><span>Avis</span><strong>4,8 / 5 · 122 avis</strong></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1">
+          <figure class="hero-main">
+            <img src="assets/images/facade-boutique.png" alt="Façade de So Coco - La Mie en Rose à Nantes">
+          </figure>
+          <figure class="hero-side">
+            <img src="assets/images/pain-au-chocolat.png" alt="Pain au chocolat en vitrine chez So Coco">
+          </figure>
+          <div class="hero-badge" aria-hidden="true"><img src="assets/images/logo-sococo.png" alt=""></div>
+          <div class="hero-note">"Pains, douceurs & bonne humeur" — la signature affichée par So Coco sur son Instagram officiel.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-strip" aria-label="Présentation rapide">
+      <div class="shell logo-strip-inner reveal">
+        <div class="logo-chip"><img src="assets/images/logo-sococo.png" alt=""><strong>So Coco</strong></div>
+        <div class="logo-copy">Boulangerie-pâtisserie artisanale ouverte en <strong>2025</strong> à Nantes par <strong>Chloé Béliard</strong>, avec une gamme de pains, viennoiseries et snacking travaillée en amont avec la Minoterie Girardeau.</div>
+      </div>
+    </section>
+
+    <section class="section" id="selection">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">La sélection</p>
+          <h2>Des pains, des douceurs<br>et un vrai univers.</h2>
+          <p>Le site met en avant uniquement des produits et informations publiquement documentés : pains artisanaux, viennoiseries, pâtisseries, snacking, pains bio et créations de saison.</p>
+        </div>
+
+        <div class="selection-grid">
+          <article class="selection-main reveal">
+            <div class="image-wrap">
+              <img src="assets/images/pains-et-baguettes.png" alt="Pains et baguettes présentés sur les étagères de So Coco">
+            </div>
+            <div class="copy-wrap">
+              <p class="eyebrow">Boulangerie</p>
+              <h3>Le fournil du quotidien</h3>
+              <p>La gamme travaillée avant l’ouverture cite notamment la <strong>Baguette La Silex</strong>, la <strong>Tourte de Meule Bio</strong>, la <strong>Tourte aux Alouettes</strong>, les <strong>Norvégiens aux graines et aux fruits</strong> ainsi que la <strong>Tourte de Seigle</strong>.</p>
+              <div class="tag-list" aria-label="Exemples de pains mentionnés publiquement">
+                <span>La Silex</span><span>Tourte de Meule Bio</span><span>Norvégien</span><span>Tourte de Seigle</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="selection-side">
+            <article class="story-card reveal delay-1">
+              <img src="assets/images/tartes-vitrine.png" alt="Tartes et pâtisseries en vitrine chez So Coco">
+              <div class="story-copy">
+                <p class="eyebrow">Pâtisserie</p>
+                <h3>Douceurs & vitrine</h3>
+                <p>Entremets, tartes, desserts de saison et créations pâtissières participent à l’identité de la maison. Les visuels transmis donnent le ton : précis, gourmand et lumineux.</p>
+              </div>
+            </article>
+
+            <article class="story-card reveal delay-2">
+              <img src="assets/images/packaging.png" alt="Packaging So Coco avec boîtes et sachets de la maison">
+              <div class="story-copy">
+                <p class="eyebrow">À emporter</p>
+                <h3>Une identité soignée</h3>
+                <p>Logo, packagings, signalétique et façade composent une image douce et cohérente, autour de tons poudrés, de bois et d’un univers maison très reconnaissable.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight-section" id="maison">
+      <div class="shell highlight-layout">
+        <div class="highlight-copy reveal">
+          <p class="eyebrow">La maison So Coco</p>
+          <h2>Une adresse pensée<br>dans les moindres détails.</h2>
+          <p>Nantaise d’origine, <strong>Chloé Béliard</strong> a lancé So Coco en 2025. Les informations publiques évoquent une offre faite maison, une sensibilité aux matières premières et une sélection de pains, viennoiseries, snacking et pâtisseries artisanales.</p>
+          <ul>
+            <li>Boulangerie & pâtisserie artisanale</li>
+            <li>Choix de pains bio et certification AB affichée</li>
+            <li>Viennoiseries, brioche "So Coco" et douceurs</li>
+            <li>Snacking et solutions à emporter</li>
+          </ul>
+        </div>
+        <figure class="highlight-visual reveal delay-1">
+          <img src="assets/images/buchettes.png" alt="Créations pâtissières individuelles signées So Coco">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Galerie visuelle">
+      <div class="shell">
+        <div class="gallery-grid">
+          <figure class="gallery-main reveal">
+            <img src="assets/images/enseigne-logo.png" alt="Enseigne ronde So Coco en façade">
+          </figure>
+          <div class="gallery-aside">
+            <div class="gallery-quote reveal delay-1">
+              <div>
+                <p class="eyebrow">Esprit de la maison</p>
+                <p>Une boulangerie-pâtisserie où la façade, le fournil, la vitrine et le packaging racontent la même histoire.</p>
+              </div>
+              <p>Doux, artisanal,<br>gourmand, nantais.</p>
+            </div>
+            <figure class="gallery-card reveal delay-2">
+              <img src="assets/images/baguette-sac.png" alt="Baguette emballée dans un sac So Coco">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="avis">
+      <div class="shell reviews-layout">
+        <div class="review-panel reveal">
+          <p class="eyebrow">Avis & infos utiles</p>
+          <div class="review-number">4,8</div>
+          <div class="stars" aria-label="4,8 étoiles sur 5">★★★★★</div>
+          <p>Note Google relevée avec <strong>122 avis</strong>. Les coordonnées publiques mentionnent également les paiements CB / Visa / Mastercard / titres restaurants ainsi qu’une prestation de livraison à domicile.</p>
+          <a class="button button-rose" href="https://www.google.com/maps/search/?api=1&query=So%20Coco%20La%20Mie%20en%20Rose%202%20Rue%20Lamorici%C3%A8re%20Nantes" target="_blank" rel="noopener">Voir sur Google Maps</a>
+        </div>
+
+        <div class="facts-grid">
+          <article class="fact-card reveal delay-1">
+            <span>Produits</span>
+            <strong>Pains, viennoiseries<br>et pâtisseries</strong>
+            <p>La boutique communique publiquement sur une offre artisanale complète, du pain au dessert, avec une gamme de saison et des créations maison.</p>
+          </article>
+          <article class="fact-card reveal delay-2">
+            <span>Paiements</span>
+            <strong>CB, Visa,<br>Mastercard, TR</strong>
+            <p>Les moyens de paiement mentionnés publiquement incluent carte bancaire, Visa, Mastercard et titres restaurants.</p>
+          </article>
+          <article class="fact-card reveal delay-1">
+            <span>Services</span>
+            <strong>Livraison &<br>agriculture bio</strong>
+            <p>Les fiches publiques associent So Coco à une prestation de livraison à domicile et à une démarche autour de l’agriculture biologique.</p>
+          </article>
+          <article class="fact-card reveal delay-2">
+            <span>Ambiance</span>
+            <strong>Façade claire,<br>codes poudrés</strong>
+            <p>L’univers visuel transmis joue sur les teintes blush, le bois, les lignes douces et une signature graphique immédiatement reconnaissable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section visit" id="infos">
+      <div class="shell visit-grid">
+        <div class="visit-card reveal">
+          <p class="eyebrow">Infos pratiques</p>
+          <h2>2 rue<br>Lamoricière</h2>
+          <p>44100 Nantes · Quartier Bon Port / Canclaux. À quelques pas de la place René Bouhier.</p>
+          <div class="info-list">
+            <div class="info-row">
+              <span>Horaires</span>
+              <strong>Lundi à vendredi · 7h00 — 19h30<br>Samedi · fermé<br>Dimanche · fermé</strong>
+            </div>
+            <div class="info-row">
+              <span>Téléphone</span>
+              <a href="tel:+33240204796">02 40 20 47 96</a>
+            </div>
+            <div class="info-row">
+              <span>Instagram</span>
+              <a href="https://www.instagram.com/sococo.nantes/" target="_blank" rel="noopener">@sococo.nantes</a>
+            </div>
+            <div class="info-row">
+              <span>Adresse</span>
+              <strong>2 Rue Lamoricière, 44100 Nantes</strong>
+            </div>
+          </div>
+          <div class="hero-actions" style="margin-top:28px;">
+            <a class="button button-dark" href="https://www.google.com/maps/search/?api=1&query=2%20Rue%20Lamorici%C3%A8re%2044100%20Nantes" target="_blank" rel="noopener">Itinéraire</a>
+            <a class="button button-soft" href="tel:+33240204796">Appeler</a>
+          </div>
+        </div>
+        <div class="map-panel reveal delay-1">
+          <iframe
+            title="Carte de localisation de So Coco à Nantes"
+            src="https://www.google.com/maps?q=2%20Rue%20Lamorici%C3%A8re%2044100%20Nantes&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/logo-sococo.png" alt="Logo So Coco">
+        <div>
+          <strong>So Coco</strong>
+          <span>La Mie en Rose · Nantes</span>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <p>Pâtisserie & boulangerie artisanale · 2 rue Lamoricière · 44100 Nantes</p>
+        <p>Téléphone : 02 40 20 47 96 · Instagram : @sococo.nantes</p>
+      </div>
+      <div class="footer-legal">
+        <p>Horaires affichés d’après les informations publiques vérifiées en août 2026.</p>
+        <p>Photos, logo et identité visuelle intégrés à partir des éléments fournis pour le projet.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
